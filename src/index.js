@@ -1,15 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+//when you write react code you write individual snippetes or code
+//or componenets
+//Write javascript that will produce html
+//Transpile from es6 to something else to html
 
-import App from './components/app';
-import reducers from './reducers';
+//Weback and babel transpile es6 to html
+//JSX + ES6 -> ES5
+//--> spits out application.js file
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+//Create new component. This component should produce some HTML.
+const App = function() {
+	return <div>Hi!</div>; //this is jsx (subset of js)
+} //This stuff gets rendered
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+
+//Make sure that this component gets put into the DOM
+//Take the generated HTML and put it on the page
+
