@@ -50,3 +50,5 @@ class SearchBar extends Component {
 //ReactDOM.render(<SearchBar />);
 
 export default SearchBar; //when something tries to import this, this is what gets imported
+
+//DOWNWARDS DATA FLOW - only the highest up component should be concerned with fetching something
