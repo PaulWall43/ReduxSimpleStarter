@@ -30,10 +30,15 @@ const API_KEY = 'AIzaSyDJW327CCMIucWyme1WFhmou36HefakrXg';
 class App extends Component{ //-> This creates an instance, but App is a class
 	constructor(props){
 		super(props);
-		this.state = { videos : [] }
+		this.state = { 
+			videos : [], 
+			selectedVideo : null
+		};
 		YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
 			//this.setState({videos: videos});
-			this.setState({videos}); //same as above
+			this.setState({videos: videos,
+							selectedVideo: videos[0]
+			}); //same as above
 		});
 	}
 	render() {
@@ -41,8 +46,10 @@ class App extends Component{ //-> This creates an instance, but App is a class
 		return (
 			<div>
 				<SearchBar />
-				<VideoDetail video={this.state.videos[0]} />
-				<VideoList videos={this.state.videos} /> 
+				<VideoDetail video={this.state.selectedVideo} />
+				<VideoList 
+				onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+				videos={this.state.videos} /> 
 			</div> //this is jsx (subset of js) -> transpiled to vanilla js
 		);
 	}

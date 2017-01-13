@@ -1,5 +1,7 @@
 import React from 'react';
 
+//spinner on high level
+
 const VideoDetail = ({video}) => {
 
 	if(!video){
